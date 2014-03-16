@@ -1,79 +1,23 @@
-<window id="10090"><!-- edited whole file to skip preplay screen-->
-	<defaultcontrol always="true">334</defaultcontrol>
+<window id="10090">
+	<defaultcontrol always="true">102</defaultcontrol>
 	<views>60,61,58</views>
+	<allowoverlay>no</allowoverlay>
+	<onload condition="Container.Content(clips)">Skin.SetString(SectionType,preplay)</onload>
+	<onunload>Skin.Reset(SectionType)</onunload>
 	<controls>
-		<control type="group">
-
-			<control type="button" id="334">
-		      <description>Home Menu</description>
-		      <include>DialogBG</include>
-			  <onfocus>Skin.SetBool(PreplayFlagHome)</onfocus>
-			  <onfocus>Skin.Reset(PreplayFlagLibrary)</onfocus>
-			  <onfocus>Skin.Reset(PreplayFlagSearch)</onfocus>
-			  <onfocus>Skin.Reset(PreplayFlagChannels)</onfocus>
-			  <onfocus>Plex.PlayWith(VideoDefaultPlayer)</onfocus>
-	    	  <visible>Window.Previous(home)</visible>
-	  		</control>
-			<control type="button" id="334">
-		      <description>Channels</description>
-		      <include>DialogBG</include>
-			  <onfocus>Skin.Reset(PreplayFlagHome)</onfocus>
-			  <onfocus>Skin.Reset(PreplayFlagLibrary)</onfocus>
-			  <onfocus>Skin.Reset(PreplayFlagSearch)</onfocus>
-			  <onfocus>Skin.SetBool(PreplayFlagChannels)</onfocus>
-			  <onfocus>Plex.PlayWith(VideoDefaultPlayer)</onfocus>
-	   	      <visible>Window.Previous(99)</visible>
-	  		</control>
-			<control type="button" id="334">
-		      <description>Library</description>
-		      <include>DialogBG</include>
-			  <onfocus>Skin.Reset(PreplayFlagHome)</onfocus>
-			  <onfocus>Skin.Reset(PreplayFlagChannels)</onfocus>
-			  <onfocus>Skin.Reset(PreplayFlagSearch)</onfocus>
-			  <onfocus>Skin.SetBool(PreplayFlagLibrary)</onfocus>
-			  <onfocus>Plex.PlayWith(VideoDefaultPlayer)</onfocus>
-	   	      <visible>Window.Previous(videolibrary)</visible>
-	  		</control>
-			<control type="button" id="334">
-		      <description>Search</description>
-		      <include>DialogBG</include>
-			  <onfocus>Skin.Reset(PreplayFlagHome)</onfocus>
-			  <onfocus>Skin.Reset(PreplayFlagLibrary)</onfocus>
-			  <onfocus>Skin.Reset(PreplayFlagChannels)</onfocus>
-			  <onfocus>Skin.SetBool(PreplayFlagSearch)</onfocus>
-			  <onfocus>Plex.PlayWith(VideoDefaultPlayer)</onfocus>
-	   	      <visible>Window.Previous(51)</visible>
-	  		</control>
-
-			<control type="button" id="334">
-			  <include>DialogBG</include>
-		      <description>Channels</description>
-	          <onfocus>ReplaceWindow(99)</onfocus>
-			  <onfocus>Skin.Reset(PreplayFlagChannels)</onfocus>
-	    	  <visible>Skin.HasSetting(PreplayFlagChannels)</visible>
-	  		</control>
-			<control type="button" id="334">
-		      <description>Library</description>
-		      <include>DialogBG</include>
-	          <onfocus>ReplaceWindow(videolibrary)</onfocus>
-			  <onfocus>Skin.Reset(PreplayFlagLibrary)</onfocus>
-	    	  <visible>Skin.HasSetting(PreplayFlagLibrary)</visible>
-	  		</control>
-			<control type="button" id="334">
-		      <description>Home Menu</description>
-		      <include>DialogBG</include>
-	          <onfocus>ReplaceWindow(home)</onfocus>
-			  <onfocus>Skin.Reset(PreplayFlagHome)</onfocus>
-	    	  <visible>Skin.HasSetting(PreplayFlagHome)</visible>
-	  		</control>
-			<control type="button" id="334">
-		      <description>Search</description>
-		      <include>DialogBG</include>
-	          <onfocus>ReplaceWindow(51)</onfocus>
-			  <onfocus>Skin.Reset(PreplayFlagSearch)</onfocus>
-	    	  <visible>Skin.HasSetting(PreplayFlagSearch)</visible>
-	  		</control>
-
-		</control>
+		<!-- bg's (Backgrounds.xml) -->
+		<include>BGGrainy</include>
+		<include>BGFanart</include>
+		<include>BGOverlay</include>
+		<!-- Preplay screens (ViewsPreplay.xml) -->
+		<include>PreplayMovie</include>
+		<include>PreplayEpisode</include>
+		<include>PreplayClip</include>
+		<!-- top-level ui (LeftSidemenu.xml & IncludesGlobals.xml & Debug.xml) -->
+		<include>LeftSideMenuPreplay</include>
+		<!--<include>TopBar</include>-->
+		<include>debugInfos</include>
+		<include>Grid</include>
+		<include>WindowFade</include>
 	</controls>
 </window>

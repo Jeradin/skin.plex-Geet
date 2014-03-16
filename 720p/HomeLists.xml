@@ -554,13 +554,13 @@
 								<animation effect="fade" start="100" end="50" time="300" condition="ControlGroup(7001).HasFocus">Conditional</animation>
 								<control type="group">
 									<include>ListItemPoster</include>
-							<!--	<include>ListItemInProgress</include> Geet - Hide inprogress icon ondeck -->
+									<include>ListItemInProgress</include>
 								</control>
 								<control type="group">
 									<visible>ListItem.Type(episode)</visible>
 									<include>ListItemPosterCard</include>
 									<include>ListItemPosterTitleTV2</include>
-							<!--	<include>ListItemInProgress</include> Geet - Hide inprogress icon ondeck -->
+									<include>ListItemInProgress</include>
 								</control>
 								<control type="image">
 									<visible>ControlGroup(7001).HasFocus</visible>
