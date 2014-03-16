@@ -9,7 +9,7 @@
 	<controls>
 		<!-- bg's (Backgrounds.xml) -->
 		<include>BGGrainy</include>
-	<!--<!--<include>BGFanart</include> Geet- Removed fanart --> Geet- Removed fanart -->
+		<include>BGFanart</include>
 		<include>BGOverlay</include>
 		<!-- views (ViewsChannels.xml) -->
 		<!-- Channels ID 70 -->

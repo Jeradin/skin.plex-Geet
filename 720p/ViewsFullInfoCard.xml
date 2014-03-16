@@ -93,7 +93,7 @@
 				<wrapmultiline>false</wrapmultiline>
 				<shadowcolor>ff222222</shadowcolor>
 				<visible>Container.Content(seasons)</visible>
-			</control>
+			</control>			
 			<control type="label">
 				<width min="0" max="20">auto</width>
 				<height>20</height>
@@ -106,7 +106,7 @@
 				<visible>[Container.Content(movies) + [ListItem.Status(Unwatched) | ListItem.Status(InProgress)] + !Skin.HasSetting(HideUnwatchedIconsMovies)] | [Container.Content(TVShows) + [ListItem.Status(Unwatched) | ListItem.Status(InProgress)] + !Skin.HasSetting(HideUnwatchedIconsTVShows)] | [Container.Content(seasons) + [ListItem.Status(Unwatched) | ListItem.Status(InProgress)] + !Skin.HasSetting(HideUnwatchedIconsTVShows)]</visible>
 			</control>
 			<control type="image">
-				<height>20</height>
+				<height>17</height>
 				<width min="1" max="20">auto</width>
 				<texture>OverlayUnwatched.png</texture>
 				<aspectratio>keep</aspectratio>
@@ -137,7 +137,7 @@
 		<control type="grouplist">
 			<animation effect="fade" start="0" end="60" time="0" condition="true">Conditional</animation>
 			<width>310</width>
-			<align>right</align><!-- Geet change alignment from center for media flags -->
+			<align>center</align>
 			<posy>27</posy>
 			<orientation>horizontal</orientation>
 			<itemgap>40</itemgap>
@@ -182,11 +182,11 @@
 	<!-- Card -->
 	<include name="ListItemFullInfo">
 		<control type="group">
-		<visible>Control.IsVisible(58) | Container.Content(movies) | Container.Content(tvshows)</visible><!--Geet - Added visible for container movies-->
+		<visible>Control.IsVisible(58)</visible>
 		<include>rightSideSlide</include>
 		<include>ListItemFullInfoLeftSlide</include>
 			<control type="group" id="999">
-				<posx>0</posx><!-- Geet- changed from 74 -->
+				<posx>74</posx>
 				<posy>0</posy>
 				<height>25</height>
 				<control type="group">
@@ -204,9 +204,9 @@
 					<!-- plot bg -->
 					<control type="image">
 						<posx>0</posx>
-						<posy>355</posy><!-- Geet edited posy of plot BG from 330-->
+						<posy>330</posy>
 						<width>390</width>
-						<height>310</height><!-- Geet edited height of plot BG from 320-->
+						<height>320</height>
 						<include>Black</include>
 						<animation effect="fade" start="0" end="30" time="400" condition="true">Conditional</animation>
 						<visible>true</visible>
@@ -258,110 +258,10 @@
 									<texture background="true">$INFO[ListItem.Art(thumb)]</texture>
 									<visible>IsEmpty(ListItem.Property(Fanart_Image)) | Container.Content(homemovies) | Container.Content(photos) | Container.Content(artists) | [Container.Content(channel) + ListItem.Type(photo)] | [Container.Content(channel) + [ListItem.Type(clip) | ListItem.Type(episode)]]</visible>
 								</control>
-							<!--<include>ListItemFullInfoThumbCardUnwatchedOverlay</include> Geet- Hide unwatched icon on show fanart -->
+							<include>ListItemFullInfoThumbCardUnwatchedOverlay</include>
 						</control>
 					</control>
 					<!-- infos -->
-					<!--added by Geet Star Rating, Director and Cast -->
-					<control type="image">
-						<posy>260</posy>
-						<posx>272</posx>
-						<width>100</width>
-						<height>20</height>
-						<texture>$INFO[ListItem.StarRating]</texture>
-						<aspectratio align="right" aligny="center">keep</aspectratio>
-						<visible>IsEmpty(ListItem.Property(hasUserRating))</visible>
-					</control>
-					<control type="image">
-						<posy>260</posy>
-						<posx>272</posx>
-						<width>100</width>
-						<height>20</height>
-						<texture>$INFO[ListItem.StarRating]</texture>
-						<aspectratio align="right" aligny="center">keep</aspectratio>
-						<colordiffuse>orange</colordiffuse>
-						<visible>!IsEmpty(ListItem.Property(hasUserRating))</visible>
-					</control>
-						<!-- Content ratings -->
-					<control type="label">
-							<posy>262</posy>
-							<posx>290</posx>
-							<width>100</width>
-							<height>20</height>
-							<label>$INFO[Listitem.Property(mediaTag-contentRating)] [COLOR=orange]&#xB7;[/COLOR]</label>
-							<font>Bold-14</font>
-							<align>right</align>
-					</control>
-					<!-- Genre -->
-					<control type="grouplist">
-						<posy>298</posy>
-						<posx>22</posx>
-						<orientation>horizontal</orientation>
-						<itemgap>10</itemgap>
-						<control type="label">
-							<font>Regular-12</font>
-							<label>[UPPERCASE]$LOCALIZE[135][/UPPERCASE]</label>
-							<textcolor>FF888888</textcolor>
-							<shadowcolor>ff222222</shadowcolor>
-							<width>66</width>
-						</control>
-						<control type="label">
-							<scroll>false</scroll>
-							<wrapmultiline>false</wrapmultiline>
-							<width>270</width>
-							<font>Regular-12</font>
-							<label>$VAR[ListItemFullInfoThirdTitle]</label>
-							<align>left</align>
-						</control>
-					</control>
-						<!-- Director -->
-					<control type="grouplist">
-					    <visible>Container.Content(movies)</visible>
-						<posy>318</posy>
-						<posx>22</posx>
-						<orientation>horizontal</orientation>
-						<itemgap>10</itemgap>
-						<control type="label">
-							<font>Regular-12</font>
-							<label>[UPPERCASE]$LOCALIZE[31135][/UPPERCASE]</label>
-							<textcolor>FF888888</textcolor>
-							<shadowcolor>ff222222</shadowcolor>
-							<width>66</width>
-						</control>
-						<control type="label">
-							<scroll>false</scroll>
-							<wrapmultiline>false</wrapmultiline>
-							<width>270</width>
-							<font>Regular-12</font>
-							<label>$INFO[ListItem.Director]</label>
-							<align>left</align>
-						</control>
-					</control>
-							<!-- Cast -->
-					<control type="grouplist">
-					 	<visible>Container.Content(movies)</visible>
-						<posy>338</posy>
-						<posx>22</posx>
-						<orientation>horizontal</orientation>
-						<itemgap>10</itemgap>
-						<control type="label">
-							<font>Regular-12</font>
-							<label>[UPPERCASE]$LOCALIZE[31134][/UPPERCASE]</label>
-							<textcolor>FF888888</textcolor>
-							<shadowcolor>ff222222</shadowcolor>
-							<width>66</width>
-						</control>
-						<control type="label">
-							<scroll>false</scroll>
-							<posy>0</posy>
-							<wrapmultiline>false</wrapmultiline>
-							<width>270</width>
-							<font>Regular-12</font>
-							<label>$INFO[ListItem.Cast]</label>
-							<align>left</align>
-						</control>
-					</control>
-					<!--End added by Geet-->
 					<control type="group">
 						<posy>231</posy>
 						<posx>22</posx>
@@ -387,7 +287,6 @@
 							<width>315</width>
 							<shadowcolor>ff222222</shadowcolor>
 						</control>
-						<!-- Geet - Hide genre
 						<control type="label">
 							<posy>72</posy>
 							<align>left</align>
@@ -399,8 +298,6 @@
 							<width>270</width>
 							<shadowcolor>ff222222</shadowcolor>
 						</control>
-						-->
-						<!-- Geet - Hide content ratings img
 						<control type="image">
 							<posy>37</posy>
 							<posx>960r</posx>
@@ -410,7 +307,6 @@
 							<aspectratio align="right" aligny="bottom">keep</aspectratio>
 							<colordiffuse>FF999999</colordiffuse>
 						</control>
-						-->
 						<control type="image">
 							<posy>37</posy>
 							<posx>960r</posx>
@@ -472,7 +368,7 @@
 							<visible>[Container.Content(songs) + !IsEmpty(Container.Property(summary))] | [Container.Content(seasons) + IsEmpty(ListItem.Property(summary)) + !IsEmpty(Container.Property(summary))]</visible>
 						</control>
 						<control type="textbox" id="113">
-							<posy>135</posy><!-- Geet - Changed posy from 115 -->
+							<posy>115</posy>
 							<width>315</width>
 							<height>280</height>
 							<label>$VAR[ListItemFullInfoPlot]</label>
@@ -511,7 +407,7 @@
 				</control>
 			</control>
 		</control>
-	</include>
+	</include>	
 	<!-- HomeListItemFullInfo -->
 	<include name="ShowHomeFullInfo">
 		<visible>[Control.HasFocus(11001) + Control.IsVisible(11000)] | [Control.HasFocus(11003) + Control.IsVisible(11004)] | [Control.HasFocus(11000) + Control.IsVisible(11001)] | [Control.HasFocus(11004) + Control.IsVisible(11003)] | [Control.HasFocus(11000) + !Control.IsVisible(11001) + [Container(11000).ListItem.Type(movie) | Container(11000).ListItem.Type(episode)]] | [Control.HasFocus(11001) + !Control.IsVisible(11000)] | [Control.HasFocus(11003) + !Control.IsVisible(11004)] | [Control.HasFocus(11004) + !Control.IsVisible(11003)]</visible>
@@ -686,9 +582,9 @@
 					<!-- plot bg -->
 					<control type="image">
 						<posx>0</posx>
-						<posy>355</posy><!-- Geet edited posy of plot BG from 330-->
+						<posy>330</posy>
 						<width>390</width>
-						<height>310</height><!-- Geet edited height of plot BG from 320-->
+						<height>320</height>
 						<include>Black</include>
 						<animation effect="fade" start="0" end="30" time="400" condition="true">Conditional</animation>
 						<visible>true</visible>
@@ -746,7 +642,7 @@
 								<posy>210</posy>
 								<width>30</width>
 								<height>30</height>
-								<!--<texture>$INFO[Container(11001).ListItem.Overlay]</texture> Geet - remove inprogress icon from fanart-->
+								<texture>$INFO[Container(11001).ListItem.Overlay]</texture>
 								<visible>Container(11001).ListItem.Status(InProgress)</visible>
 							</control>
 						</control>
@@ -782,109 +678,6 @@
 						</control>
 					</control>
 					<!-- infos -->
-					<!--added by Geet Star Rating, Director and Cast -->
-					<control type="image">
-						<posy>260</posy>
-						<posx>272</posx>
-						<width>100</width>
-						<height>20</height>
-						<texture>$INFO[Container(11001).ListItem.StarRating]</texture>
-						<aspectratio align="right" aligny="center">keep</aspectratio>
-						<visible>IsEmpty(Container(11001).ListItem.Property(hasUserRating))</visible>
-					</control>
-					<control type="image">
-						<posy>260</posy>
-						<posx>272</posx>
-						<width>100</width>
-						<height>20</height>
-						<texture>$INFO[Container(11001).ListItem.StarRating]</texture>
-						<aspectratio align="right" aligny="center">keep</aspectratio>
-						<colordiffuse>orange</colordiffuse>
-						<visible>!IsEmpty(Container(11001).ListItem.Property(hasUserRating))</visible>
-					</control>
-						<!-- Content ratings -->
-					<control type="label">
-							<visible>Container(11000).ListItem.Type(movie)</visible>
-							<posy>262</posy>
-							<posx>290</posx>
-							<width>100</width>
-							<height>20</height>
-							<label>$INFO[Container(11001).Listitem.Property(mediaTag-contentRating)]  [COLOR=orange]&#xB7;[/COLOR]</label>
-							<font>Bold-14</font>
-							<align>right</align>
-					</control>
-					<!-- Genre -->
-					<control type="grouplist">
-						<visible>Container(11000).ListItem.Type(movie)</visible>
-						<posy>298</posy>
-						<posx>22</posx>
-						<orientation>horizontal</orientation>
-						<itemgap>10</itemgap>
-						<control type="label">
-							<font>Regular-12</font>
-							<label>[UPPERCASE]$LOCALIZE[135][/UPPERCASE]</label>
-							<textcolor>FF888888</textcolor>
-							<shadowcolor>ff222222</shadowcolor>
-							<width>66</width>
-						</control>
-						<control type="label">
-							<scroll>false</scroll>
-							<wrapmultiline>false</wrapmultiline>
-							<width>270</width>
-							<font>Regular-12</font>
-							<label>$VAR[HomeListItemFullInfoThirdTitle]</label>
-							<align>left</align>
-						</control>
-					</control>
-						<!-- Director -->
-					<control type="grouplist">
-					    <visible>Container(11000).ListItem.Type(movie)</visible>
-						<posy>318</posy>
-						<posx>22</posx>
-						<orientation>horizontal</orientation>
-						<itemgap>10</itemgap>
-						<control type="label">
-							<font>Regular-12</font>
-							<label>[UPPERCASE]$LOCALIZE[31135][/UPPERCASE]</label>
-							<textcolor>FF888888</textcolor>
-							<shadowcolor>ff222222</shadowcolor>
-							<width>66</width>
-						</control>
-						<control type="label">
-							<scroll>false</scroll>
-							<wrapmultiline>false</wrapmultiline>
-							<width>270</width>
-							<font>Regular-12</font>
-							<label>$INFO[Container(11001).ListItem.Director]</label>
-							<align>left</align>
-						</control>
-					</control>
-							<!-- Cast -->
-					<control type="grouplist">
-					 	<visible>Container(11000).ListItem.Type(movie)</visible>
-						<posy>338</posy>
-						<posx>22</posx>
-						<orientation>horizontal</orientation>
-						<itemgap>10</itemgap>
-						<control type="label">
-							<font>Regular-12</font>
-							<label>[UPPERCASE]$LOCALIZE[31134][/UPPERCASE]</label>
-							<textcolor>FF888888</textcolor>
-							<shadowcolor>ff222222</shadowcolor>
-							<width>66</width>
-						</control>
-						<control type="label">
-							<scroll>false</scroll>
-							<posy>0</posy>
-							<wrapmultiline>false</wrapmultiline>
-							<width>270</width>
-							<font>Regular-12</font>
-							<label>$INFO[Container(11001).ListItem.Cast]</label>
-							<align>left</align>
-						</control>
-					</control>
-					<!--End added by Geet-->
-
 					<control type="group">
 						<posy>231</posy>
 						<posx>22</posx>

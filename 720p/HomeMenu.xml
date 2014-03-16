@@ -87,22 +87,14 @@
 			<control type="wraplist" id="300">
 				<description>Home Main Menu</description>
 				<posx>0</posx>
-				<!--Geet Home menu without scroll
-						10: height=570 posy=97 focusposition=6
-						 4:  height=228 posy=250 focusposition=3
-					-->
-				<posy>252</posy>
+				<posy>103</posy>
 				<width>372</width>
-				<height>228</height>
-				<!--Geet Removed
-				<posy>97</posy>
-				<width>372</width>
-				<height>570</height>-->
+				<height>570</height>
 				<onup>300</onup>
 				<ondown>300</ondown>
 				<onleft>Plex.ActivateWindow(4998)</onleft>
 				<onright>5000</onright>
-				<focusposition>3</focusposition><!-- Geet - Change from 6 to 3 for focus -->
+				<focusposition>6</focusposition>
 				<scrolltime>200</scrolltime>
 				<animation type="Conditional" condition="!Window.IsActive(4998)" reversible="false">
 					<effect type="rotatey" center="304" start="80,455" end="0,455" time="300"/>
