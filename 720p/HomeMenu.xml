@@ -94,7 +94,7 @@
 				<ondown>300</ondown>
 				<onleft>Plex.ActivateWindow(4998)</onleft>
 				<onright>5000</onright>
-				<<focusposition>3</focusposition><!-- Geet - Change from 6 to 3 for focus -->
+				<focusposition>3</focusposition><!-- Geet - Change from 6 to 3 for focus -->
 				<scrolltime>200</scrolltime>
 				<animation type="Conditional" condition="!Window.IsActive(4998)" reversible="false">
 					<effect type="rotatey" center="304" start="80,455" end="0,455" time="300"/>
