@@ -114,6 +114,7 @@
 			<aligny>center</aligny>
 			<height>60</height>
 			<label>The list is empty</label>
+			<onfocus>PreviousMenu</onfocus><!--Geet - Work on adding this to go to previous list if view is empty -->
 			<font>Bold-52</font>
 			<textcolor>orangeLight</textcolor>
 			<shadowcolor>FF222222</shadowcolor>
