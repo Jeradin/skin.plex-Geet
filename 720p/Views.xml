@@ -258,7 +258,7 @@
 			<include>ListItemFullInfoLeftSlide</include>
 			<control type="largeimage">
 				<posy>0</posy>
-				<posx>390</posx><!-- Geet Changed from 465, background to go all the way left -->
+				<posx>465</posx>
 				<width>1280</width>
 				<height>720</height>
 				<aspectratio aligny="top">stretch</aspectratio>
