@@ -283,9 +283,9 @@
 					<viewtype label="List">panel</viewtype>
 					<visible>!Container.Content(movie) + !Container.Content(episode) + !Container.Content(Folders) + !Container.Content(clip) + !Container.Content(clips)</visible>
 					<posy>31</posy>
-					<posx>405</posx><!-- Geet Changed from 505 -->
-					<width>865</width><!-- Geet Changed from 735 -->
-					<height>665</height><!-- Geet Changed from 655 -->
+					<posx>505</posx>
+					<width>735</width>
+					<height>665</height>
 					<onright>Container.NextViewMode</onright>
 					<onleft>1300</onleft>
 					<onup>58</onup>
