@@ -1,5 +1,83 @@
 <?xml version="1.0"?>
 <includes>
+<!--Geet  - Get thumbnail includes-->
+	<!-- Smaller posters -->
+	<include name="MovieTVPoster">
+		<control type="image">
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>146</width>
+			<height>206</height>
+			<include>Shadow</include>
+		</control>
+		<control type="image">
+			<posx>13</posx>
+			<posy>13</posy>
+			<width>120</width>
+			<height>180</height>
+			<texture background="true">default-poster-middle.png</texture>
+		</control>
+		<control type="image">
+			<posx>13</posx>
+			<posy>13</posy>
+			<width>120</width>
+			<height>180</height>
+			<texture background="true" diffuse="mask-poster-middle.png">$INFO[ListItem.Art(smallThumb)]</texture>
+			<aspectratio scalediffuse="false" align="center" aligny="top">scale</aspectratio>
+		</control>
+	</include>
+	<include name="MovieTVPosterSelectedBorder">
+		<control type="image">
+			<width>126</width>
+			<height>186</height>
+			<include>Border</include>
+		</control>
+	</include>
+	<include name="MovieTVPosterTitle">
+		<posy>202</posy>
+		<posx>73</posx>
+		<width>120</width>
+		<height>20</height>
+		<align>center</align>
+		<aligny>center</aligny>
+		<label>$INFO[ListItem.Label]</label>
+		<font>Regular-17</font>
+		<shadowcolor>FF222222</shadowcolor>
+	</include>
+	<include name="MovieTVPosterUnwatchedOverlay">
+		<control type="group">
+			<control type="image">
+				<posx>98</posx>
+				<posy>158</posy>
+				<width>34</width>
+				<height>34</height>
+				<info>ListItem.Overlay</info>
+			</control>
+			<control type="label">
+				<posy>161</posy>
+				<posx>114</posx>
+				<width>40</width>
+				<height>30</height>
+				<align>center</align>
+				<aligny>center</aligny>
+				<label>$INFO[ListItem.Property(UnWatchedEpisodes)]</label>
+				<font>Bold-14</font>
+				<shadowcolor>FF222222</shadowcolor>
+			</control>
+			<visible>[Container.Content(TVShows) + [ListItem.Status(Unwatched) | ListItem.Status(InProgress)] + !Skin.HasSetting(HideUnwatchedIconsTVShows)] | [Container.Content(seasons) + [ListItem.Status(Unwatched) | ListItem.Status(InProgress)] + !Skin.HasSetting(HideUnwatchedIconsTVShows)]</visible>
+		</control>
+		<control type="group">
+			<control type="image">
+				<posx>106</posx>
+				<posy>166</posy>
+				<width>26</width>
+				<height>26</height>
+				<info>ListItem.Overlay</info>
+				<visible>[Container.Content(movies) + [ListItem.Status(Unwatched) | ListItem.Status(InProgress)] + !Skin.HasSetting(HideUnwatchedIconsMovies)]</visible>
+			</control>
+		</control>
+	</include>
+<!-- end Geet - Get thumbnail includes -->
 	<!-- Thumbs -->
 	<include name="ListSelectedArt">
 		<!-- TV Show Banner -->
@@ -180,7 +258,7 @@
 			<include>ListItemFullInfoLeftSlide</include>
 			<control type="largeimage">
 				<posy>0</posy>
-				<posx>465</posx>
+				<posx>390</posx><!-- Geet Changed from 465, background to go all the way left -->
 				<width>1280</width>
 				<height>720</height>
 				<aspectratio aligny="top">stretch</aspectratio>
@@ -190,7 +268,8 @@
 			</control>
 			<visible>!Container.Content(movie) + !Container.Content(episode) + !Container.Content(Folders) + !Container.Content(clip) + !Container.Content(clips)</visible>
 			<!-- selected item bg -->
-			<control type="image">
+			<!-- Geet remove below to hide the active list item -->
+			<!--<control type="image">
 				<posx>465</posx>
 				<posy>330</posy>
 				<width>1000</width>
@@ -198,15 +277,15 @@
 				<include>Base</include>
 				<animation effect="fade" start="0" end="10" time="400" condition="true">Conditional</animation>
 				<visible>Control.IsVisible(58)</visible>
-			</control>
+			</control>End - Geet remove-->
 			<control type="group" id="777">
 				<control type="fixedlist" id="58">
 					<viewtype label="List">panel</viewtype>
 					<visible>!Container.Content(movie) + !Container.Content(episode) + !Container.Content(Folders) + !Container.Content(clip) + !Container.Content(clips)</visible>
 					<posy>31</posy>
-					<posx>505</posx>
-					<width>735</width>
-					<height>655</height>
+					<posx>405</posx><!-- Geet Changed from 505 -->
+					<width>865</width><!-- Geet Changed from 735 -->
+					<height>665</height><!-- Geet Changed from 655 -->
 					<onright>Container.NextViewMode</onright>
 					<onleft>1300</onleft>
 					<onup>58</onup>
@@ -216,7 +295,25 @@
 					<scrolltime>200</scrolltime>
 					<pagecontrol>61</pagecontrol>
 					<!-- movies & tv shows -->
-					<itemlayout height="50" condition="Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)">
+					<!-- Geet - Code below to show posters instead of list  -->
+					<itemlayout width="144" height="220"  condition="Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)">
+					<include>MovieTVPoster</include>
+					<control type="label">
+						<include>MovieTVPosterTitle</include>
+					</control>
+					<include>MovieTVPosterUnwatchedOverlay</include>
+					</itemlayout>
+				<focusedlayout width="144" height="220" condition="Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)">
+						<include>MovieTVPoster</include>
+						<control type="label">
+							<include>MovieTVPosterTitle</include>
+							<textcolor>orangeLight</textcolor>
+						</control>
+						<include>MovieTVPosterUnwatchedOverlay</include>
+						<include>MovieTVPosterSelectedBorder</include>
+					</focusedlayout>
+					<!-- End - Geet - Replaced with below  -->
+	<!-- Geet removed old list	<itemlayout height="50" condition="Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)">
 						<control type="image">
 							<posx>0</posx>
 							<posy>0</posy>
@@ -292,7 +389,7 @@
 								<effect type="fade" start="0" end="100" time="450"/>
 							</animation>
 						</control>
-					</focusedlayout>
+					</focusedlayout> End - Geet remove list-->
 					<!-- filtered episodes -->
 					<itemlayout height="50" condition="[Container.Content(episodes) + !IsEmpty(Container.Property(primaryFilterActivated)) + !IsEmpty(Container.Property(mixedParents))] | [Container.Content(episodes) + !IsEmpty(Container.Property(mixedParents))]">
 						<control type="image">
