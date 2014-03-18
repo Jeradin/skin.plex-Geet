@@ -279,7 +279,7 @@
 				<visible>Control.IsVisible(58)</visible>
 			</control>End - Geet remove-->
 			<control type="group" id="777">
-				<control type="fixedlist" id="58">
+				<control type="panel" id="58"><!--Geet Change from  type="fixedlist"-->
 					<viewtype label="List">panel</viewtype>
 					<visible>!Container.Content(movie) + !Container.Content(episode) + !Container.Content(Folders) + !Container.Content(clip) + !Container.Content(clips)</visible>
 					<posy>31</posy>
