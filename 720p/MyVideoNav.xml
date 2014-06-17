@@ -11,7 +11,7 @@
 	<controls>
 		<!-- bg's (Backgrounds.xml) -->
 		<include>BGGrainy</include>
-		<!--<include>BGFanart</include> Geet- Removed fanart -->
+		<include>BGFanart</include>
 		<include>BGOverlay</include>
 		<!-- views (Views.xml & ViewsMovieTV.xml & ViewsChannels.xml & ViewsPreplay.xml & ViewsClips.xml) -->
 		<!-- ByFolder ID 40 -->

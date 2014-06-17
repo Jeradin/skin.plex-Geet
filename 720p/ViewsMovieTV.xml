@@ -163,7 +163,7 @@
 				<viewtype label="LibraryPostersBigger">panel</viewtype>
 				<onup>51</onup>
 				<ondown>51</ondown>
-				<!-- Geet - no list view <onright>Container.NextViewMode</onright> -->
+				<onright>Container.NextViewMode</onright>
 				<onleft>1300</onleft>
 				<orientation>vertical</orientation>
 				<posx>102</posx>
@@ -200,25 +200,19 @@
 				<viewtype label="LibraryPosters">panel</viewtype>
 				<onup>50</onup>
 				<ondown>50</ondown>
-				<!-- Geet - no list view <onright>Container.NextViewMode</onright> -->
+				<onright>Container.NextViewMode</onright>
 				<onleft>1300</onleft>
 				<orientation>vertical</orientation>
-				<!-- Edited by Geet - allow for 6 movies with side info
 				<posx>100</posx>
 				<posy>28</posy>
 				<width>1200</width>
-				End Edited by Geet -->
-				<posx>405</posx>
-				<posy>28</posy>
-				<width>900</width>
-				<!-- End add -->
 				<height>666</height>
 				<itemlayout width="144" height="220">
 					<include>MovieTVPoster</include>
 					<control type="label">
 						<include>MovieTVPosterTitle</include>
 					</control>
-					<include>MovieTVPosterUnwatchedOverlay</include>
+					<include>MovieTVPosterUnwatchedOverlay</include>					
 				</itemlayout>
 				<focusedlayout width="144" height="220">
 					<include>MovieTVPoster</include>
@@ -357,7 +351,7 @@
 				<viewtype label="LibraryFilteredEpisodes">panel</viewtype>
 				<onup>62</onup>
 				<ondown>62</ondown>
-				<!-- Geet - no list view <onright>Container.NextViewMode</onright> -->
+				<onright>Container.NextViewMode</onright>
 				<onleft>1300</onleft>
 				<orientation>vertical</orientation>
 				<posx>100</posx>

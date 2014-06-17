@@ -233,7 +233,7 @@
 		<value condition="Container.Content(episode)">$LOCALIZE[31114]</value>
 		<value condition="Container.Content(channels)">$LOCALIZE[32107]</value>
 		<value condition="Container.Content(clip) | Container.Content(homemovies)">$LOCALIZE[31144]</value>
-		<value condition="Window.IsActive(mysharedcontent)">$LOCALIZE[32108]</value>
+		<value condition="Window.IsActive(mysharedcontent)">$LOCALIZE[32108]</value>		
 		<value>Item</value>
 	</variable>
 	<include name="TopBar">
@@ -318,22 +318,6 @@
 			</control>
 		</control>
 	</include>
-	<!-- Geet - Universal Clock -->
-	<include name="ClockUniversal">
-		<control type="group">
-			<posx>1255</posx>
-			<control type="label">
-				<label>$INFO[System.Time(short_no_meridian)]</label>
-				<align>right</align>
-				<aligny>center</aligny>
-				<width>70</width>
-				<height>49</height>
-				<font>Regular-14</font>
-				<textcolor>FF999999</textcolor>
-			</control>
-		</control>
-	</include>
-	<!-- End Geet - Universal Clock -->
 	<!-- scroll letter offset -->
 	<include name="scrollOffset">
 		<control type="group">
@@ -374,7 +358,27 @@
 					<label>$INFO[ListItem.SortLetter]</label>
 				</control>
 			</control>
-
+			
+		</control>
+	</include>
+	<include name="UnavailableIndicator">
+		<control type="group">
+			<visible>!IsEmpty(ListItem.Property(Unavailable))</visible>
+			<control type="image">
+				<posy>5</posy>
+				<width>210</width>
+				<height>26</height>
+				<texture>b-unavailable.png</texture>
+			</control>
+			<control type="label">
+				<posy>6</posy>
+				<width>210</width>
+				<height>26</height>
+				<align>center</align>
+				<aligny>center</aligny>
+				<label>$LOCALIZE[32109]</label>
+				<include>LeftInfoFormatGrey</include>
+			</control>
 		</control>
 	</include>
 	<!-- animations -->

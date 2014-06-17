@@ -24,7 +24,6 @@
 		<animation effect="fade" start="100" end="50" time="300" condition="ControlGroup(1300).HasFocus()">Conditional</animation>
 	</include>
 	<include name="leftMenuBg">
-			<!-- Geet - Edit this for left black bar in movie view. -->
 		<control type="group">
 			<posy>0</posy>
 			<!-- Background -->
@@ -37,7 +36,7 @@
 					<effect type="fade" start="0" end="75"/>
 				</animation>
 			</control>
-		<!--	<control type="image">
+			<control type="image">
 				<posx>0</posx>
 				<width>74</width>
 				<height>720</height>
@@ -61,8 +60,8 @@
 				<aspectratio>keep</aspectratio>
 				<texture>left-menu-filters-icon.png</texture>
 				<colordiffuse>FF999999</colordiffuse>
-				<visible>!Container.content(movie) + !Container.content(episode) + !Container.content(clip)</visible>
-			</control> end geet edit-->
+				<visible>!Container.content(movie) + !Container.content(episode) + !Container.content(clip) + !Container.content(channel)</visible>
+			</control>
 			<control type="image">
 				<posy>680</posy>
 				<posx>30</posx>
@@ -275,7 +274,7 @@
 		<pulseonselect>false</pulseonselect>
 		<radioheight>14</radioheight>
 		<radiowidth>16</radiowidth>
-		<radioposy>8</radioposy>
+		<radioposy>6</radioposy>
 	</include>
 	<!-- preplay buttons -->
 	<include name="leftMenuPreplayIcon">
@@ -465,8 +464,6 @@
 			<include>leftMenuInitSlide</include>
 			<include>leftMenuSlide</include>
 			<include>leftMenuBg</include>
-			<!-- Geet - add clock universal -->
-			<include>ClockUniversal</include>
 			<!-- global search-->
 			<!--><include>GlobalSearch</include>-->
 			<!-- filters & sorting menu -->
