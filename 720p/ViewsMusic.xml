@@ -89,14 +89,14 @@
 	<!-- Library -->
 	<include name="LibraryMusic">
 		<control type="group">
-			<visible>!Container.Content(addons) + !Container.Content(plugins) + !Container.Content(channel)</visible>
+			<visible>!Container.Content(addons) + !Container.Content(plugins) + !Container.PlexContent(Channel)</visible>
 			<include>FadeDialog</include>
 			<include>rightSideSlide</include>
 			<!-- Library -->
 			<control type="group" id="777">
 				<control type="panel" id="52">
 					<viewtype label="MusicLibrary">panel</viewtype>
-					<visible>[!Container.Content(Albums) + !Container.Content(Songs) + !Container.Content(addons) + !Container.Content(plugins) + !Container.Content(channel)] | [Container.Content(Albums) + !IsEmpty(Container.Property(mixedParents))]</visible>
+					<visible>[[Container.PlexContent(Albums) + [Container.PlexFilter(Albums) | Container.PlexFilter(recentlyAdded)]] | [Container.PlexContent(Artists) + Container.PlexFilter(All)]] + !Container.PlexContent(Songs) + !Container.Content(addons) + !Container.Content(plugins) + !Container.PlexContent(Channel)</visible>
 					<posy>28</posy>
 					<posx>100</posx>
 					<width>1200</width>
@@ -104,7 +104,7 @@
 					<onup>52</onup>
 					<ondown>52</ondown>
 					<onright>Container.NextViewMode</onright>
-					<onleft>1300</onleft>
+					<onleft>998</onleft>
 					<orientation>vertical</orientation>
 					<itemlayout width="192" height="220">
 						<include>MusicThumbCard</include>
@@ -129,7 +129,7 @@
 			<control type="group" id="777">
 				<posx>-54</posx>
 				<posy>-34</posy>
-				<visible>Container.Content(Albums) + !Container.Content(addons) + !Container.Content(plugins) + !Container.Content(secondary) + IsEmpty(Container.Property(mixedParents)) + IsEmpty(Container.Property(primaryFilterActivated)) + Control.IsVisible(53)</visible>
+				<visible>[Container.PlexContent(Albums) + !Container.PlexFilter(Albums)] + !Container.Content(addons) + !Container.Content(plugins) + !Container.PlexContent(Secondary) + IsEmpty(Container.Property(mixedParents)) + Control.IsVisible(53)</visible>
 				<!-- backgrounds & plot -->
 				<control type="group">
 					<!-- backgrounds -->
@@ -139,61 +139,61 @@
 						<visible>Control.IsVisible(53)</visible>
 						<!-- artist thumb -->
 						<control type="group">
-						<posx>81</posx>
-						<posy>62</posy>
-						<control type="image">
-							<posx>0</posx>
-							<posy>0</posy>
-							<width>300</width>
-							<height>300</height>
-							<include>Shadow</include>
+							<posx>155</posx>
+							<posy>62</posy>
+							<control type="image">
+								<posx>0</posx>
+								<posy>0</posy>
+								<width>300</width>
+								<height>300</height>
+								<include>Shadow</include>
+							</control>
+							<control type="image">
+								<description>Poster image</description>
+								<posx>13</posx>
+								<posy>13</posy>
+								<width>274</width>
+								<height>274</height>
+								<texture background="true" diffuse="mask-square.png">$INFO[ListItem.Property(fanart_image)]</texture>
+								<aspectratio scalediffuse="false" align="center" aligny="top">scale</aspectratio>
+							</control>
+							<control type="image">
+								<description>Poster image</description>
+								<posx>13</posx>
+								<posy>13</posy>
+								<width>274</width>
+								<height>274</height>
+								<texture background="true" diffuse="mask-square.png">$INFO[Container.FolderThumb]</texture>
+								<aspectratio scalediffuse="false" align="center" aligny="top">scale</aspectratio>
+							</control>
 						</control>
-						<control type="image">
-							<description>Poster image</description>
-							<posx>13</posx>
-							<posy>13</posy>
-							<width>274</width>
-							<height>274</height>
-							<texture background="true" diffuse="mask-square.png">$INFO[ListItem.Property(fanart_image)]</texture>
-							<aspectratio scalediffuse="false" align="center" aligny="top">scale</aspectratio>
-						</control>
-						<control type="image">
-							<description>Poster image</description>
-							<posx>13</posx>
-							<posy>13</posy>
-							<width>274</width>
-							<height>274</height>
-							<texture background="true" diffuse="mask-square.png">$INFO[Container.FolderThumb]</texture>
-							<aspectratio scalediffuse="false" align="center" aligny="top">scale</aspectratio>
-						</control>
-					</control>
 						<!-- plot text -->
 						<control type="textbox">
-						<posx>95</posx>
-						<posy>420</posy>
-						<width>670</width>
-						<height>246</height>
-						<include>PlotFormat</include>
-						<label>$INFO[Container.Property(summary)]</label>
-					</control>
+							<posx>169</posx>
+							<posy>420</posy>
+							<width>596</width>
+							<height>246</height>
+							<include>PlotFormat</include>
+							<label>$INFO[Container.Property(summary)]</label>
+						</control>
 						<control type="textbox">
-						<posx>95</posx>
-						<posy>420</posy>
-						<width>670</width>
-						<height>246</height>
-						<include>PlotFormat</include>
-						<include>NoPlotDefault</include>
-						<visible>IsEmpty(Container.Property(summary))</visible>
+							<posx>169</posx>
+							<posy>420</posy>
+							<width>596</width>
+							<height>246</height>
+							<include>PlotFormat</include>
+							<include>NoPlotDefault</include>
+							<visible>IsEmpty(Container.Property(summary))</visible>
+						</control>
 					</control>
-					</control>	
 				</control>
 				<!-- Infos Left -->
 				<control type="group">
 					<posy>70</posy>
-					<posx>394</posx>
+					<posx>468</posx>
 					<!-- Title -->
 					<control type="label">
-						<width>370</width>
+						<width>296</width>
 						<height>40</height>
 						<label>$INFO[Container.SecondTitle]</label>
 						<font>Bold-36</font>
@@ -228,7 +228,7 @@
 						<orientation>horizontal</orientation>
 						<itemgap>10</itemgap>
 						<control type="label">
-							<width min="29" max="600">auto</width>
+							<width min="29" max="296">auto</width>
 							<height>20</height>
 							<label>$VAR[TopBarItemCountStrings]</label>
 							<font>Regular-18</font>
@@ -262,12 +262,12 @@
 				</control>
 				<!-- list -->
 				<control type="panel" id="53">
-					<visible>Container.Content(Albums) + IsEmpty(Container.Property(primaryFilterActivated))</visible>
+					<visible>[Container.PlexContent(Albums) + !Container.PlexFilter(Albums)] + !Container.Content(addons) + !Container.Content(plugins) + !Container.PlexContent(Secondary) + IsEmpty(Container.Property(mixedParents))</visible>
 					<viewtype label="MusicLibraryAlbums">panel</viewtype>
 					<onup>53</onup>
 					<ondown>53</ondown>
 					<onright>Container.NextViewMode</onright>
-					<onleft>1300</onleft>
+					<onleft>998</onleft>
 					<orientation>vertical</orientation>
 					<posx>850</posx>
 					<posy>60</posy>
@@ -296,7 +296,7 @@
 			<control type="group" id="777">
 				<posx>-54</posx>
 				<posy>-34</posy>
-				<visible>Container.Content(Songs) + !Container.Content(addons) + !Container.Content(plugins) + !Container.Content(secondary)</visible>
+				<visible>Container.PlexContent(Songs) + !Container.Content(addons) + !Container.Content(plugins) + !Container.PlexContent(Secondary)</visible>
 				<!-- backgrounds & plot -->
 				<control type="group">
 					<visible>Control.IsVisible(54)</visible>
@@ -307,7 +307,7 @@
 					</control>
 					<!-- artist thumb -->
 					<control type="group">
-						<posx>81</posx>
+						<posx>155</posx>
 						<posy>62</posy>
 						<control type="image">
 							<posx>0</posx>
@@ -339,17 +339,17 @@
 					</control>
 					<!-- plot text -->
 					<control type="textbox">
-						<posx>95</posx>
+						<posx>169</posx>
 						<posy>412</posy>
-						<width>670</width>
+						<width>596</width>
 						<height>246</height>
 						<include>PlotFormat</include>
 						<label>$INFO[Container.Property(summary)]</label>
 					</control>
 					<control type="textbox">
-						<posx>95</posx>
+						<posx>169</posx>
 						<posy>420</posy>
-						<width>670</width>
+						<width>596</width>
 						<height>246</height>
 						<include>PlotFormat</include>
 						<include>NoPlotDefault</include>
@@ -360,10 +360,10 @@
 				<control type="group">
 					<visible>Control.IsVisible(54)</visible>
 					<posy>70</posy>
-					<posx>394</posx>
+					<posx>468</posx>
 					<!-- Titles -->
 					<control type="label">
-						<width>370</width>
+						<width>296</width>
 						<height>40</height>
 						<label>$INFO[ListItem.Artist]</label>
 						<font>Bold-36</font>
@@ -372,7 +372,7 @@
 					</control>
 					<control type="label">
 						<posy>40</posy>
-						<width>370</width>
+						<width>296</width>
 						<height>40</height>
 						<label>$INFO[ListItem.Album]</label>
 						<font>Bold-36</font>
@@ -408,7 +408,7 @@
 						<orientation>horizontal</orientation>
 						<itemgap>10</itemgap>
 						<control type="label">
-							<width min="29" max="600">auto</width>
+							<width min="29" max="296">auto</width>
 							<height>20</height>
 							<label>$VAR[TopBarItemCountStrings]</label>
 							<font>Regular-18</font>
@@ -421,7 +421,7 @@
 				</control>
 				<!-- list -->
 				<control type="list" id="54">
-					<visible>Container.Content(Songs)</visible>
+					<visible>Container.PlexContent(Songs)</visible>
 					<viewtype label="MusicLibraryAlbumTracks">list</viewtype>
 					<posx>794</posx>
 					<posy>55</posy>
@@ -429,7 +429,7 @@
 					<height>650</height>
 					<scrolltime>200</scrolltime>
 					<pagecontrol>61</pagecontrol>
-					<onleft>1300</onleft>
+					<onleft>998</onleft>
 					<onright>Container.NextViewMode</onright>
 					<onup>54</onup>
 					<ondown>54</ondown>
