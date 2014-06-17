@@ -87,15 +87,9 @@
 			<control type="wraplist" id="300">
 				<description>Home Main Menu</description>
 				<posx>0</posx>
-<<<<<<< HEAD
 				<posy>103</posy>
 				<width>372</width>
 				<height>570</height>
-=======
-				<posy>252</posy><!--Geet changes from 97 -->
-				<width>372</width>
-				<height>228</height><!--Geet changes from 570 -->
->>>>>>> FETCH_HEAD
 				<onup>300</onup>
 				<ondown>300</ondown>
 				<onleft>Plex.ActivateWindow(4998)</onleft>
@@ -119,7 +113,7 @@
 						<posy>20</posy>
 						<width>360</width>
 						<height>0</height>
-						<label>$INFO[ListItem.Title]</label>
+						<label>$INFO[ListItem.Label]</label>
 						<info>ListItem.Label</info>
 						<align>right</align>
 						<aligny>center</aligny>
@@ -134,7 +128,7 @@
 						<posy>53</posy>
 						<width>353</width>
 						<height>0</height>
-						<label>$INFO[ListItem.Title]</label>
+						<label>$INFO[ListItem.Label]</label>
 						<align>right</align>
 						<aligny>center</aligny>
 						<font>Bold-36</font>
