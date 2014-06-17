@@ -318,6 +318,26 @@
 			</control>
 		</control>
 	</include>
+<<<<<<< HEAD
+=======
+	<!-- Geet - Universal Clock -->
+	<include name="ClockUniversal">
+		<control type="group">
+			<posx>1255</posx>
+			<control type="label">
+				<label>$INFO[System.Time(short_no_meridian)]</label>
+				<align>right</align>
+				<aligny>center</aligny>
+				<width>70</width>
+				<height>49</height>
+				<font>Regular-14</font>
+				<textcolor>FF999999</textcolor>
+			</control>
+		</control>
+	</include>
+	<!-- End Geet - Universal Clock -->
+
+>>>>>>> FETCH_HEAD
 	<!-- scroll letter offset -->
 	<include name="scrollOffset">
 		<control type="group">

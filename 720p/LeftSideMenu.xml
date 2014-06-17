@@ -464,6 +464,10 @@
 			<include>leftMenuInitSlide</include>
 			<include>leftMenuSlide</include>
 			<include>leftMenuBg</include>
+<<<<<<< HEAD
+=======
+			<include>ClockUniversal</include><!-- Geet - add clock universal -->
+>>>>>>> FETCH_HEAD
 			<!-- global search-->
 			<!--><include>GlobalSearch</include>-->
 			<!-- filters & sorting menu -->

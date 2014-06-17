@@ -87,9 +87,15 @@
 			<control type="wraplist" id="300">
 				<description>Home Main Menu</description>
 				<posx>0</posx>
+<<<<<<< HEAD
 				<posy>103</posy>
 				<width>372</width>
 				<height>570</height>
+=======
+				<posy>252</posy><!--Geet changes from 97 -->
+				<width>372</width>
+				<height>228</height><!--Geet changes from 570 -->
+>>>>>>> FETCH_HEAD
 				<onup>300</onup>
 				<ondown>300</ondown>
 				<onleft>Plex.ActivateWindow(4998)</onleft>

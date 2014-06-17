@@ -5,7 +5,11 @@
 	<onload>Skin.SetString(AspectRatio,$INFO[Skin.AspectRatio])</onload>
 	<controls>
 		<include>BGGrainy</include>
+<<<<<<< HEAD
 		<include>SlideshowHome</include>
+=======
+	<!--	<include>SlideshowHome</include> Geet - Hide background on home for channels -->
+>>>>>>> FETCH_HEAD
 		<include>HomeMenu</include>
 		<include>HomeLists</include>
 		<include>Clock</include>

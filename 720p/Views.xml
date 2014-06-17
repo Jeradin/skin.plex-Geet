@@ -1,5 +1,189 @@
 <?xml version="1.0"?>
 <includes>
+<<<<<<< HEAD
+	<!-- Thumbs -->
+	<include name="ListSelectedArt">
+		<!-- TV Show Banner -->
+		<control type="group">
+			<visible>Container.Content(tvshows)</visible>
+			<control type="image">
+				<posx>23</posx>
+				<posy>37</posy>
+				<width>458</width>
+				<height>106</height>
+				<aspectratio scalediffuse="true" align="center">stretch</aspectratio>
+				<texture background="true" border="20">shadow.png</texture>
+			</control>
+			<control type="image">
+				<include>PosListItem</include>
+				<width>432</width>
+				<height>80</height>
+				<aspectratio scalediffuse="false" align="center">scale</aspectratio>
+				<texture diffuse="mask-wide-big.png" background="true">default-banner-small.png</texture>
+			</control>
+			<control type="image">
+				<include>PosListItem</include>
+				<width>432</width>
+				<height>80</height>
+				<aspectratio scalediffuse="false" align="center">scale</aspectratio>
+				<texture diffuse="mask-wide-big.png" background="true">$INFO[ListItem.Art(banner)]</texture>
+			</control>
+		</control>
+		<!-- Episode Thumb -->
+		<control type="group">
+			<visible>Container.Content(episodes) | [Container.Content(channel) + [ListItem.Type(clip) | ListItem.Type(episode)]]</visible>
+			<control type="image">
+				<posx>23</posx>
+				<posy>37</posy>
+				<width>168</width>
+				<height>106</height>
+				<aspectratio scalediffuse="true" align="center">stretch</aspectratio>
+				<texture background="true" border="20">shadow.png</texture>
+			</control>
+			<control type="image">
+				<include>PosListItem</include>
+				<width>142</width>
+				<height>80</height>
+				<texture background="true">default-thumb-small.png</texture>
+			</control>
+			<control type="image">
+				<include>PosListItem</include>
+				<width>142</width>
+				<height>80</height>
+				<aspectratio scalediffuse="false" align="center">scale</aspectratio>
+				<texture diffuse="mask-wide-big.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
+			</control>
+		</control>
+		<!-- Movies Poster -->
+		<control type="group">
+			<visible>Container.Content(Movies)</visible>
+			<control type="image">
+				<posx>23</posx>
+				<posy>37</posy>
+				<width>79</width>
+				<height>106</height>
+				<aspectratio scalediffuse="true" align="center">stretch</aspectratio>
+				<texture background="true" border="20">shadow.png</texture>
+			</control>
+			<control type="image">
+				<include>PosListItem</include>
+				<width>53</width>
+				<height>80</height>
+				<texture background="true">default-poster-small.png</texture>
+			</control>
+			<control type="image">
+				<include>PosListItem</include>
+				<width>53</width>
+				<height>80</height>
+				<aspectratio scalediffuse="false" align="center">scale</aspectratio>
+				<texture diffuse="mask-poster-small.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
+			</control>
+		</control>
+		<!-- Music/Photos/Channels Square Art -->
+		<control type="group">
+			<visible>Container.Content(artists) | Container.Content(albums) | Container.Content(songs) | Container.Content(photos) | [Container.Content(channels) | [Container.Content(channel) + ListItem.Type(photo)]] | [Container.Content(channel) + !ListItem.Type(clip) + !ListItem.Type(episode)]</visible>
+			<control type="image">
+				<posx>23</posx>
+				<posy>37</posy>
+				<width>106</width>
+				<height>106</height>
+				<include>Shadow</include>
+			</control>
+			<control type="image">
+				<include>PosListItem</include>
+				<width>80</width>
+				<height>80</height>
+				<texture background="true">default-square-small.png</texture>
+			</control>
+			<control type="image">
+				<include>PosListItem</include>
+				<width>80</width>
+				<height>80</height>
+				<aspectratio scalediffuse="false" align="center">scale</aspectratio>
+				<texture diffuse="mask-square.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
+			</control>
+=======
+<!--Geet  - Get thumbnail includes-->
+	<!-- Smaller posters -->
+	<include name="MovieTVPoster">
+		<control type="image">
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>146</width>
+			<height>206</height>
+			<include>Shadow</include>
+		</control>
+		<control type="image">
+			<posx>13</posx>
+			<posy>13</posy>
+			<width>120</width>
+			<height>180</height>
+			<texture background="true">default-poster-middle.png</texture>
+		</control>
+		<control type="image">
+			<posx>13</posx>
+			<posy>13</posy>
+			<width>120</width>
+			<height>180</height>
+			<texture background="true" diffuse="mask-poster-middle.png">$INFO[ListItem.Art(smallThumb)]</texture>
+			<aspectratio scalediffuse="false" align="center" aligny="top">scale</aspectratio>
+>>>>>>> FETCH_HEAD
+		</control>
+	</include>
+	<include name="MovieTVPosterSelectedBorder">
+		<control type="image">
+			<width>126</width>
+			<height>186</height>
+			<include>Border</include>
+		</control>
+	</include>
+<<<<<<< HEAD
+=======
+	<include name="MovieTVPosterTitle">
+		<posy>202</posy>
+		<posx>73</posx>
+		<width>120</width>
+		<height>20</height>
+		<align>center</align>
+		<aligny>center</aligny>
+		<label>$INFO[ListItem.Label]</label>
+		<font>Regular-17</font>
+		<shadowcolor>FF222222</shadowcolor>
+	</include>
+	<include name="MovieTVPosterUnwatchedOverlay">
+		<control type="group">
+			<control type="image">
+				<posx>98</posx>
+				<posy>158</posy>
+				<width>34</width>
+				<height>34</height>
+				<info>ListItem.Overlay</info>
+			</control>
+			<control type="label">
+				<posy>161</posy>
+				<posx>114</posx>
+				<width>40</width>
+				<height>30</height>
+				<align>center</align>
+				<aligny>center</aligny>
+				<label>$INFO[ListItem.Property(UnWatchedEpisodes)]</label>
+				<font>Bold-14</font>
+				<shadowcolor>FF222222</shadowcolor>
+			</control>
+			<visible>[Container.Content(TVShows) + [ListItem.Status(Unwatched) | ListItem.Status(InProgress)] + !Skin.HasSetting(HideUnwatchedIconsTVShows)] | [Container.Content(seasons) + [ListItem.Status(Unwatched) | ListItem.Status(InProgress)] + !Skin.HasSetting(HideUnwatchedIconsTVShows)]</visible>
+		</control>
+		<control type="group">
+			<control type="image">
+				<posx>106</posx>
+				<posy>166</posy>
+				<width>26</width>
+				<height>26</height>
+				<info>ListItem.Overlay</info>
+				<visible>[Container.Content(movies) + [ListItem.Status(Unwatched) | ListItem.Status(InProgress)] + !Skin.HasSetting(HideUnwatchedIconsMovies)]</visible>
+			</control>
+		</control>
+	</include>
+<!-- end Geet - Get thumbnail includes -->
 	<!-- Thumbs -->
 	<include name="ListSelectedArt">
 		<!-- TV Show Banner -->
@@ -118,6 +302,7 @@
 			<texture diffuse="mask-square.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
 		</control>
 	</include>
+>>>>>>> FETCH_HEAD
 	<include name="ListChannelTypeIcon">
 		<control type="image">
 			<posx>0</posx>
@@ -190,7 +375,8 @@
 			</control>
 			<visible>!Container.Content(movie) + !Container.Content(episode) + !Container.Content(Folders) + !Container.Content(clip) + !Container.Content(clips)</visible>
 			<!-- selected item bg -->
-			<control type="image">
+			<!-- Geet remove below to hide the active list item -->
+			<!--<control type="image">
 				<posx>465</posx>
 				<posy>330</posy>
 				<width>1000</width>
@@ -198,15 +384,15 @@
 				<include>Base</include>
 				<animation effect="fade" start="0" end="10" time="400" condition="true">Conditional</animation>
 				<visible>Control.IsVisible(58)</visible>
-			</control>
+			</control>End - Geet remove-->
 			<control type="group" id="777">
-				<control type="fixedlist" id="58">
+				<control type="panel" id="58"><!--Geet Change from  type="fixedlist"-->
 					<viewtype label="List">panel</viewtype>
 					<visible>!Container.Content(movie) + !Container.Content(episode) + !Container.Content(Folders) + !Container.Content(clip) + !Container.Content(clips)</visible>
 					<posy>31</posy>
 					<posx>505</posx>
 					<width>735</width>
-					<height>655</height>
+					<height>665</height>
 					<onright>Container.NextViewMode</onright>
 					<onleft>1300</onleft>
 					<onup>58</onup>
@@ -216,7 +402,25 @@
 					<scrolltime>200</scrolltime>
 					<pagecontrol>61</pagecontrol>
 					<!-- movies & tv shows -->
-					<itemlayout height="50" condition="Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)">
+					<!-- Geet - Code below to show posters instead of list  -->
+					<itemlayout width="144" height="220"  condition="Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)">
+					<include>MovieTVPoster</include>
+					<control type="label">
+						<include>MovieTVPosterTitle</include>
+					</control>
+					<include>MovieTVPosterUnwatchedOverlay</include>
+					</itemlayout>
+				<focusedlayout width="144" height="220" condition="Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)">
+						<include>MovieTVPoster</include>
+						<control type="label">
+							<include>MovieTVPosterTitle</include>
+							<textcolor>orangeLight</textcolor>
+						</control>
+						<include>MovieTVPosterUnwatchedOverlay</include>
+						<include>MovieTVPosterSelectedBorder</include>
+					</focusedlayout>
+					<!-- End - Geet - Replaced with below  -->
+	<!-- Geet removed old list	<itemlayout height="50" condition="Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)">
 						<control type="image">
 							<posx>0</posx>
 							<posy>0</posy>
@@ -271,6 +475,25 @@
 							<textcolor>orange</textcolor>
 							<shadowcolor>FF222222</shadowcolor>
 							<visible>!Container.Content(TVShows) + !Container.Content(Movies)</visible>
+<<<<<<< HEAD
+							<animation type="Focus" reversible="false">
+								<effect type="zoom" center="0,0" start="90" end="100" time="200" tween="Linear" easing="out"/>
+								<effect type="fade" start="0" end="100" time="450"/>
+							</animation>
+						</control>
+						<control type="label">
+							<posx>135</posx>
+							<posy>3</posy>
+							<width>600</width>
+							<height>100</height>
+							<info>ListItem.Label</info>
+							<aligny>center</aligny>
+							<font>Bold-32</font>
+							<textcolor>orange</textcolor>
+							<shadowcolor>FF222222</shadowcolor>
+							<visible>Container.Content(Movies)</visible>
+=======
+>>>>>>> FETCH_HEAD
 							<animation type="Focus" reversible="false">
 								<effect type="zoom" center="0,0" start="90" end="100" time="200" tween="Linear" easing="out"/>
 								<effect type="fade" start="0" end="100" time="450"/>
@@ -292,7 +515,7 @@
 								<effect type="fade" start="0" end="100" time="450"/>
 							</animation>
 						</control>
-					</focusedlayout>
+					</focusedlayout> End - Geet remove list-->
 					<!-- filtered episodes -->
 					<itemlayout height="50" condition="[Container.Content(episodes) + !IsEmpty(Container.Property(primaryFilterActivated)) + !IsEmpty(Container.Property(mixedParents))] | [Container.Content(episodes) + !IsEmpty(Container.Property(mixedParents))]">
 						<control type="image">
